@@ -1,0 +1,14 @@
+name: Multiarch-build
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  multiarch-build:
+    uses: npastorale/workflows/.github/workflows/multiarch-build.yaml@master
+    with:
+      username: npastorale
+    secrets:
+      access-token: ${{ secrets.docker_token }}
