@@ -5,7 +5,7 @@ if test ! $(which brew); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "export PATH=/opt/homebrew/bin:$PATH" >>~/.zshrc
     echo "FPATH=\"$(brew --prefix)/share/zsh/site-functions:${FPATH}\"" >>~/.zshrc
-    echo "eval \"$(/opt/homebrew/bin/brew shellenv)\""
+    echo "eval \"$(/opt/homebrew/bin/brew shellenv)\"" >>~/.zshrc
 fi
 
 # Update homebrew recipes
