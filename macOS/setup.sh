@@ -18,29 +18,33 @@ curl -L http://install.ohmyz.sh | sh
 
 # Apps
 apps=(
-    google-chrome
     docker
-    visual-studio-code
-    kubectl
+    kubernetes-cli
     git
-    kitty
     btop
-    unnaturalscrollwheels
-    doll
-    iriunwebcam
-    gpg2
     gnupg
     pinentry-mac
     jq
     vim
 )
 
+casks=(
+    google-chrome
+    visual-studio-code
+    kitty
+    unnaturalscrollwheels
+    doll
+    iriunwebcam
+)
+
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-echo "installing apps with Cask..."
+echo "installing apps..."
 brew cask install --no-quarantine --appdir="/Applications" ${apps[@]}
 
-brew cask cleanup
+echo "installing apps with Cask..."
+brew cask install --no-quarantine --appdir="/Applications" ${casks[@]}
+
 brew cleanup
 
 killall Finder
