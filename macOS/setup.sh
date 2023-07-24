@@ -1,20 +1,17 @@
-#!/bin/bash
-
-if test ! $(which brew); then
-    echo "Installing homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo "export PATH=/opt/homebrew/bin:$PATH" >>~/.zshrc
-    echo "FPATH=\"$(brew --prefix)/share/zsh/site-functions:${FPATH}\"" >>~/.zshrc
-    echo "eval \"$(/opt/homebrew/bin/brew shellenv)\"" >>~/.zshrc
-fi
-
-# Update homebrew recipes
-echo "Updating homebrew..."
-brew update
+echo "Installing homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
+
+echo -e "export PATH=/opt/homebrew/bin:$PATH\n$(cat ~/.zshrc)" >~/.zshrc
+echo -e "FPATH=\"$(brew --prefix)/share/zsh/site-functions:${FPATH}\"\n$(cat ~/.zshrc)" >~/.zshrc
+echo -e "eval \"$(brew shellenv)\"\n$(cat ~/.zshrc)" >~/.zshrc
+
+# Update homebrew recipes
+echo "Updating homebrew..."
+brew update
 
 # Apps
 apps=(
