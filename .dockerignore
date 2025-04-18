@@ -1,0 +1,14 @@
+# Ignore node_modules folder
+node_modules
+
+# Ignore git folder
+.git
+.gitignore
+
+# Ignore Dockerfile itself and dockerignore
+Dockerfile
+.dockerignore
+
+# Ignore other common files not needed in build
+*.md
+.env*
