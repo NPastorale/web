@@ -1,0 +1,12 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":disableDependencyDashboard",
+        ":prConcurrentLimitNone",
+        ":prHourlyLimitNone",
+        ":rebaseStalePrs",
+        "docker:pinDigests",
+        "regexManagers:dockerfileVersions"
+    ]
+}
