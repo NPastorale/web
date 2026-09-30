@@ -36,6 +36,12 @@ LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.title="web"
 LABEL org.opencontainers.image.description="My website."
 
-RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
+
+COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=builder /app/dist /usr/share/nginx/html/
+
+EXPOSE 8080
+
+USER 65532:65532
